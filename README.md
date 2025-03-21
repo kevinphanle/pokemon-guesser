@@ -82,49 +82,6 @@ src/
     └── pokemon.json       # Cached Pokemon data
 ```
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18 or higher
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/pokemon-guesser.git
-cd pokemon-guesser
-```
-
-2. Install dependencies:
-
-```bash
-npm install
-```
-
-3. Generate Pokemon data:
-
-```bash
-npm run generate-pokemon
-```
-
-4. Start the development server:
-
-```bash
-npm run dev
-```
-
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-### Building for Production
-
-```bash
-npm run build
-npm start
-```
-
 ## Game Rules
 
 1. **Basic Gameplay**
@@ -146,14 +103,6 @@ npm start
    - Maximum of 3 hints per Pokémon
    - Each hint reduces potential points
    - Hints provide progressively more specific information
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
