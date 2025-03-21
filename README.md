@@ -1,36 +1,162 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pokémon Guesser
+
+A modern web-based game where players guess Pokémon from their silhouettes. Built with Next.js, TypeScript, and Tailwind CSS.
+
+![Pokemon Guesser Game](public/screenshot.png)
+
+## Features
+
+### Core Gameplay
+
+- Guess Pokémon from their silhouettes
+- Original 151 Pokémon included
+- Progressive hint system
+- Detailed Pokémon information revealed after correct guesses
+
+### Scoring System
+
+- Base points for correct guesses (1-3 points)
+- Streak bonuses for consecutive correct answers
+- Point deductions for incorrect guesses
+- High score tracking
+
+### Hint System
+
+- Three types of hints available per Pokémon:
+  1. Pokémon type(s)
+  2. Height and weight
+  3. Pokédex description
+- Each hint used reduces potential points earned
+
+### Game Statistics
+
+- High score tracking
+- Games played counter
+- Correct guesses tracking
+- Accuracy percentage
+- Hints used tracking
+
+### User Interface
+
+- Clean, modern design
+- Visual countdown timer
+- Streak indicator
+- Responsive layout
+- Animated loading states
+- Type-colored badges
+- Tabbed interface for game and Pokédex
+
+### Additional Features
+
+- Skip option for difficult Pokémon
+- Local storage for persistent statistics
+- Drag-resistant images
+- Keyboard-friendly input
+- Accessible design
+
+## Technical Details
+
+### Built With
+
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+- PokéAPI for Pokémon data
+
+### Project Structure
+
+```
+src/
+├── components/
+│   ├── PokemonGame.tsx     # Main game component
+│   ├── PokemonList.tsx     # Pokédex view
+│   ├── PokemonDetails.tsx  # Pokemon info display
+│   ├── GameStats.tsx       # Statistics display
+│   ├── CountdownTimer.tsx  # Visual timer
+│   └── Tabs.tsx           # Navigation tabs
+├── utils/
+│   ├── pokemon.ts         # Pokemon data handling
+│   └── storage.ts         # Local storage management
+└── data/
+    └── pokemon.json       # Cached Pokemon data
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18 or higher
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/pokemon-guesser.git
+cd pokemon-guesser
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Generate Pokemon data:
+
+```bash
+npm run generate-pokemon
+```
+
+4. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Game Rules
 
-To learn more about Next.js, take a look at the following resources:
+1. **Basic Gameplay**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   - A silhouetted Pokémon appears
+   - Type your guess in the input field
+   - Get points for correct guesses
+   - Lose points for incorrect guesses
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Scoring**
 
-## Deploy on Vercel
+   - 3 points: Correct guess with no hints
+   - 2 points: Correct guess with 1 hint
+   - 1 point: Correct guess with 2+ hints
+   - Bonus points for streaks (every 5 correct)
+   - -1 point for incorrect guesses
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Hints**
+   - Maximum of 3 hints per Pokémon
+   - Each hint reduces potential points
+   - Hints provide progressively more specific information
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Data provided by [PokéAPI](https://pokeapi.co/)
+- Original Pokémon designs © Nintendo/Game Freak
+- Icons and design inspiration from various Pokémon games
