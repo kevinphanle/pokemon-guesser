@@ -3,6 +3,19 @@ import path from "path";
 
 const TOTAL_POKEMON = 151;
 
+interface FlavorTextEntry {
+  flavor_text: string;
+  language: {
+    name: string;
+  };
+}
+
+interface PokemonType {
+  type: {
+    name: string;
+  };
+}
+
 async function generatePokemonData() {
   console.log("Fetching Pokemon data...");
   const pokemon = [];
@@ -21,15 +34,17 @@ async function generatePokemonData() {
 
     // Get English flavor text entries
     const englishEntries = speciesData.flavor_text_entries
-      .filter((entry: any) => entry.language.name === "en")
-      .map((entry: any) => entry.flavor_text.replace(/\f|\n|\r/g, " "));
+      .filter((entry: FlavorTextEntry) => entry.language.name === "en")
+      .map((entry: FlavorTextEntry) =>
+        entry.flavor_text.replace(/\f|\n|\r/g, " ")
+      );
 
     pokemon.push({
       id: pokemonData.id,
       name: pokemonData.name,
       imageUrl: pokemonData.sprites.other["official-artwork"].front_default,
       description: englishEntries[0] || "",
-      types: pokemonData.types.map((t: any) => t.type.name),
+      types: pokemonData.types.map((t: PokemonType) => t.type.name),
       height: pokemonData.height / 10, // convert to meters
       weight: pokemonData.weight / 10, // convert to kg
     });
